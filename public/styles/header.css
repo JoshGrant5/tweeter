@@ -1,0 +1,15 @@
+header {
+  background-color: #328eeb;
+  background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png");
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+}
+
+.avatarName {
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+}
