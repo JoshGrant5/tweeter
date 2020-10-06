@@ -1,0 +1,39 @@
+article {
+  border: 3px solid #545149;
+}
+
+.enhance {
+  color: #f4f1ec;
+}
+
+article:hover .enhance {
+  color: #328eeb;
+}
+
+article:hover {
+  box-shadow: 6px 6px #328eeb;
+}
+
+.tweet {
+  padding: 1.5em;
+  margin: auto;
+}
+
+article header, footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  height: 2em;
+}
+
+article header {
+  font-size: 24px;
+}
+
+article footer {
+  border-top: 3px solid #545149;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+

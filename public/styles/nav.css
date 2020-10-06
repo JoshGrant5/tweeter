@@ -16,7 +16,9 @@ nav span {
 }
 
 .nav-right {
+  font-size: 24px;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -24,4 +26,9 @@ nav span {
 .nav-right p {
   margin: 0;
   flex-basis: 100%;
+}
+
+.nav-right svg {
+  display: flex;
+  justify-content: center;
 }
