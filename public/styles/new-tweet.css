@@ -1,8 +1,5 @@
 .new-tweet {
-  display: flex;
-  justify-content: center;
   width: 100%;
-  flex-direction: column;
 }
 
 .new-tweet form {
@@ -20,6 +17,7 @@
   height: 2em;
   width: 100%;
   font-size: 24px;
+  margin: auto;
 }
 
 .tweet-button {

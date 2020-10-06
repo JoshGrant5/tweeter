@@ -12,6 +12,7 @@ nav {
 nav span {
   font-size: 36px;
   font-family: 'Bungee', cursive;
+  font-weight: 700;
 }
 
 .nav-right {
