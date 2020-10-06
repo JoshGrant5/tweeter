@@ -24,3 +24,8 @@
   display: flex;
   justify-content: space-between;
 }
+
+.counter {
+  font-family: 'Bungee', cursive;
+  font-weight: 700;
+}

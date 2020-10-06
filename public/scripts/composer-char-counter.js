@@ -3,12 +3,13 @@ $(document).ready(function() {
   console.log('Ready!');
 
   $('#tweet-text').on('input', function() {
-    let tweet = $(this); // viewed console.log of this object in devtools to get path to the value we want to change
-    let count = 140 
-    let chars = tweet.val().length; // Number of characters in our tweet-text value (input field)
-    // Bellow is the path to the text of output tag (.counter)
-    tweet[0].parentElement[2].defaultValue = count - chars;
+    const tweet = $(this); // grab the textarea element
+    const chars = tweet.val().length; // Number of characters in our tweet-text value (input field)
+    const count = $('#counter')[0].innerHTML; // we access the #counter object, and need it's key [0] to access the innerHTML
+    $('#counter')[0].innerHTML = 140 - chars;
+
+    if (count < 0) {
+      $('.counter').css({color: 'red'});
+    }
   });
 });
-
-
