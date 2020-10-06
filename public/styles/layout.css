@@ -3,6 +3,10 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+ html, body {
+  overscroll-behavior: none;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -11,6 +15,7 @@ html {
 }
 
 body {
+  padding-top: 6em;
   color: #545149;
   background-color: #f4f1ec;
   font-family: 'Source Sans Pro', sans-serif;

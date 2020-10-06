@@ -3,6 +3,7 @@ article {
 }
 
 .enhance {
+  padding-top: 1em;
   color: #f4f1ec;
 }
 
@@ -28,6 +29,7 @@ article header, footer {
 }
 
 article header {
+  height: 2em;
   font-size: 24px;
 }
 
@@ -35,5 +37,16 @@ article footer {
   border-top: 3px solid #545149;
   margin-left: 1em;
   margin-right: 1em;
+}
+
+.tweet-avatar {
+  padding-top: 1em;
+  display: flex;
+  align-items: center;
+}
+
+.tweet-avatar img {
+  height: 1.5em;
+  padding-right: 0.5em;
 }
 
