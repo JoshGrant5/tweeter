@@ -1,0 +1,28 @@
+.new-tweet {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+}
+
+.new-tweet form {
+  width: 100%;
+}
+
+#tweet-text {
+  border-style: hidden;
+  border-bottom-style: solid;
+  border-width: 3px;
+  border-color: #545149;;
+  background-color: #f4f1ec;
+  outline: none;
+  resize: none;
+  height: 2em;
+  width: 100%;
+  font-size: 24px;
+}
+
+.tweet-button {
+  display: flex;
+  justify-content: space-between;
+}

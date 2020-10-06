@@ -14,13 +14,13 @@ nav span {
   font-family: 'Bungee', cursive;
 }
 
-.navRight {
+.nav-right {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.navRight p {
+.nav-right p {
   margin: 0;
   flex-basis: 100%;
 }

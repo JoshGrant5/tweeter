@@ -5,22 +5,31 @@
  */
 html {
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
-
-/*
- * Global layout stuff
- */
 
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 24px;
+  width: 100%;
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+button {
+  font-family: 'Bungee', cursive;
+  background-color: #4056A1;
+  color: #FFFFFF;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 0, 0;
+
+  width: 90%;
+}
+
