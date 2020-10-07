@@ -37,14 +37,14 @@ $(document).ready(function() {
     <article>
       <header>
         <div class='tweet-avatar'>
-          <img src=${data.user.avatars}>
-          <p>${data.user.name}</p>
+          <img name='tweet-av' src=${data.user.avatars}>
+          <p name='tweet-name'>${data.user.name}</p>
         </div>
-        <p class='enhance'>${data.user.handle}</p>
+        <p name='tweet-handle' class='enhance'>${data.user.handle}</p>
       </header>
-      <p class='tweet'>${data.content.text}</p>
+      <p name='tweet-content' class='tweet'>${data.content.text}</p>
       <footer>
-        <p>${data.created_at}</p>
+        <p name='tweet-date'>${data.created_at}</p>
         <p>Like buttons</p>
       </footer>
     </article>
@@ -54,12 +54,29 @@ $(document).ready(function() {
   const renderTweets = list => {
     for (item of list) {
       let tweet = createTweetElement(item);
-      console.log(tweet)
       $('#tweets-container').append(tweet);
     }
   };
 
   renderTweets(data);
+
+  $('form').on('submit', function(event) {
+    event.preventDefault();
+    let tweet = $(this).serialize();
+    
+    $.ajax({
+      type: 'POST',
+      url: '/tweets/', 
+      data: tweet,
+      success: function(newTweet) {
+        // console.log(createTweetElement(tweet))
+        $('#tweets-container').append(newTweet);
+      },
+      error: function() {
+        alert('Error Posting Tweet');
+      }
+    });
+  });
 
 });
 
