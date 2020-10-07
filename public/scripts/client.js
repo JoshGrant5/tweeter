@@ -1,35 +1,4 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
 $(document).ready(function() {
-
-  // Fake data taken from initial-tweets.json
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png",
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ]
 
   const createTweetElement = data => {
     return `
@@ -58,25 +27,47 @@ $(document).ready(function() {
     }
   };
 
-  renderTweets(data);
+  //* Initial solution
+  // $('form').on('submit', function(event) {
+  //   event.preventDefault();
+  //   const tweet = $(this).serialize();
+  //   $.ajax({
+  //     type: 'POST',
+  //     url: '/tweets', 
+  //     data: tweet,
+  //     success: function(newTweet) {
+  //       $('#tweets-container').append(newTweet);
+  //     },
+  //     error: function() {
+  //       alert('Error Posting Tweet');
+  //     }
+  //   });
+  // });
 
+  // AJAX POST Request
   $('form').on('submit', function(event) {
     event.preventDefault();
-    let tweet = $(this).serialize();
-    
-    $.ajax({
-      type: 'POST',
-      url: '/tweets/', 
-      data: tweet,
-      success: function(newTweet) {
-        // console.log(createTweetElement(tweet))
-        $('#tweets-container').append(newTweet);
-      },
-      error: function() {
-        alert('Error Posting Tweet');
-      }
-    });
+    const tweet = $(this).serialize();
+    $.ajax('/tweets', { method: 'POST' , data: tweet })
+    .then(function(newTweet) {
+      console.log('Success! Tweet posted: ', newTweet);
+    }).catch(function() {
+      alert('Error! Could not post tweet');
+    })
   });
+
+  // AJAX GET Request
+  const loadTweets = () => {
+    $.ajax('/tweets', { method: 'GET' })
+    .then(function(tweets) {
+      console.log('Success! Tweet posted: ', tweets);
+      renderTweets(tweets);
+    }).catch(function() {
+      alert('Error! Could not find tweets');
+    })
+  };
+
+  loadTweets();
 
 });
 
