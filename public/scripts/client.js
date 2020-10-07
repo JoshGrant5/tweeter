@@ -71,5 +71,11 @@ $(document).ready(function() {
 
   loadTweets();
 
+  $('.nav-right').on('click', function() {
+    $('.new-tweet').slideDown(600, function() {
+      $('#tweet-text').focus();
+    });
+  });
+
 });
 

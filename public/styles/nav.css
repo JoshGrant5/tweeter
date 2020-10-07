@@ -20,11 +20,21 @@ nav span {
 }
 
 .nav-right {
+  background-color: #328eeb;
+  background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png");
+  border: hidden;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
   font-size: 24px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.nav-right:hover {
+  font-family: 'Bungee', cursive;
+  font-weight: 700;
 }
 
 .nav-right p {
