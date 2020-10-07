@@ -1,19 +1,26 @@
 $(document).ready(function() {
 
+  // Test to prevent XSS attacks from user input
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
   const createTweetElement = data => {
     return `
     <br>
     <article>
       <header>
         <div class='tweet-avatar'>
-          <img name='tweet-av' src=${data.user.avatars}>
-          <p name='tweet-name'>${data.user.name}</p>
+          <img src=${data.user.avatars}>
+          <p>${data.user.name}</p>
         </div>
-        <p name='tweet-handle' class='enhance'>${data.user.handle}</p>
+        <p class='enhance'>${data.user.handle}</p>
       </header>
-      <p name='tweet-content' class='tweet'>${data.content.text}</p>
+      <p class='tweet'>${escape(data.content.text)}</p>
       <footer>
-        <p name='tweet-date'>${data.created_at}</p>
+        <p>${data.created_at}</p>
         <p>Like buttons</p>
       </footer>
     </article>
@@ -40,7 +47,6 @@ $(document).ready(function() {
     } else { 
       $.ajax('/tweets', { method: 'POST' , data: tweet })
       .then(function() {
-        console.log('Success! Tweet posted: ', tweet);
         loadTweets(); // Reload tweet container without refreshing the page
         $('#tweet-text').val(''); // Clear input field
         $('#counter')[0].innerHTML = 140; // Reset char counter to 140
@@ -54,7 +60,6 @@ $(document).ready(function() {
   const loadTweets = () => {
     $.ajax('/tweets', { method: 'GET' })
     .then(function(tweets) {
-      console.log('Success! Tweet posted: ', tweets);
       renderTweets(tweets);
     }).catch(function() {
       alert('Error! Could not find tweets');
