@@ -34,6 +34,16 @@ $(document).ready(function() {
     }
   };
 
+  const loadNewTweet = () => {
+    $.ajax('/tweets', { method: 'GET' })
+    .then(function(tweets) {
+      const tweet = createTweetElement(tweets[tweets.length - 1]);
+      $('#tweets-container').prepend(tweet);
+    }).catch(function() {
+      alert('Error! Could not find tweet');
+    })
+  }
+
   // AJAX POST Request
   $('form').on('submit', function(event) {
     event.preventDefault(); // prevent our form from reloading the page on submit
@@ -50,7 +60,8 @@ $(document).ready(function() {
     } else { 
       $.ajax('/tweets', { method: 'POST' , data: tweet })
       .then(function() {
-        loadTweets(); // Reload tweet container without refreshing the page
+        loadNewTweet(); // Reload tweet container without refreshing the page
+        $('.new-tweet').slideUp(1200);
         $('#tweet-text').val(''); // Clear input field
         $('#counter')[0].innerHTML = 140; // Reset char counter to 140
       }).catch(function() {
@@ -74,6 +85,20 @@ $(document).ready(function() {
   $('.nav-right').on('click', function() {
     $('.new-tweet').slideDown(600, function() {
       $('#tweet-text').focus();
+    });
+  });
+
+  $(window).on('scroll', function() {
+    $('#scroll-to-top').slideDown(600);
+    $('.nav-right').hide();
+  });
+
+  $('#scroll-to-top').on('click', function() {
+    $('html, body').animate({scrollTop:0}, '300', function() {
+      $('.nav-right').show();
+      $('.new-tweet').slideDown(600, function() {
+        $('#tweet-text').focus();
+      });
     });
   });
 
