@@ -23,26 +23,9 @@ $(document).ready(function() {
   const renderTweets = list => {
     for (item of list) {
       let tweet = createTweetElement(item);
-      $('#tweets-container').append(tweet);
+      $('#tweets-container').prepend(tweet); // makes tweet the first element in the array (new tweets first)
     }
   };
-
-  //* Initial solution
-  // $('form').on('submit', function(event) {
-  //   event.preventDefault();
-  //   const tweet = $(this).serialize();
-  //   $.ajax({
-  //     type: 'POST',
-  //     url: '/tweets', 
-  //     data: tweet,
-  //     success: function(newTweet) {
-  //       $('#tweets-container').append(newTweet);
-  //     },
-  //     error: function() {
-  //       alert('Error Posting Tweet');
-  //     }
-  //   });
-  // });
 
   // AJAX POST Request
   $('form').on('submit', function(event) {
@@ -58,6 +41,9 @@ $(document).ready(function() {
       $.ajax('/tweets', { method: 'POST' , data: tweet })
       .then(function() {
         console.log('Success! Tweet posted: ', tweet);
+        loadTweets(); // Reload tweet container without refreshing the page
+        $('#tweet-text').val(''); // Clear input field
+        $('#counter')[0].innerHTML = 140; // Reset char counter to 140
       }).catch(function() {
         alert('Error! Could not post tweet');
       })
