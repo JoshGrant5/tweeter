@@ -35,6 +35,10 @@ main {
   margin: auto;
 }
 
+strong {
+  font-weight: 700;
+}
+
 .new-tweet {
   display: none;
 }

@@ -1,5 +1,6 @@
 article {
   border: 3px solid #545149;
+  font-weight: 100;
 }
 
 .enhance {
@@ -13,6 +14,10 @@ article:hover .enhance {
 
 article:hover {
   box-shadow: 6px 6px #328eeb;
+}
+
+article:hover {
+  font-weight: 700;
 }
 
 .tweet {
