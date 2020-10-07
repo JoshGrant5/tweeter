@@ -46,14 +46,22 @@ $(document).ready(function() {
 
   // AJAX POST Request
   $('form').on('submit', function(event) {
-    event.preventDefault();
-    const tweet = $(this).serialize();
-    $.ajax('/tweets', { method: 'POST' , data: tweet })
-    .then(function(newTweet) {
-      console.log('Success! Tweet posted: ', newTweet);
-    }).catch(function() {
-      alert('Error! Could not post tweet');
-    })
+    event.preventDefault(); // prevent our form from reloading the page on submit
+    const tweet = $(this).serialize(); 
+    // Check that the tweet is valid
+    const validateTweet = $('#tweet-text').val();
+    if (!validateTweet) { // Tweet is empty
+      alert('Error! Cannot post an empty tweet');
+    } else if (validateTweet.length > 140) { 
+      alert('Error! Tweet is too many characters');
+    } else { 
+      $.ajax('/tweets', { method: 'POST' , data: tweet })
+      .then(function() {
+        console.log('Success! Tweet posted: ', tweet);
+      }).catch(function() {
+        alert('Error! Could not post tweet');
+      })
+    }
   });
 
   // AJAX GET Request
