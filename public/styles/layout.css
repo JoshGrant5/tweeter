@@ -58,3 +58,11 @@ strong {
 #scroll-to-top:hover {
   font-size: 48px;
 }
+
+@media (min-width: 1024px) {
+  .full-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}

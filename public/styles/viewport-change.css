@@ -1,0 +1,25 @@
+@media (min-width: 1024px) {
+  .full-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  nav {
+    background-color: rgb(2, 111, 91);
+  }
+  .nav-right {
+    background-color: rgb(2, 111, 91);
+  }
+  main {
+    padding-left: 45vw;
+    margin-top: 10vh;
+    margin-right: 5vw;
+  }
+  .avatar {
+    position: fixed;
+    margin-left: 5vw;
+    top: 26.5vh;
+    width: 35vw;
+    height: 400px;
+  }
+}

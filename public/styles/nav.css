@@ -9,6 +9,7 @@ nav {
   color: #FFFFFF;
   justify-content: space-between;
   padding: 1.5em;
+  z-index: 1;
   /* background-color: #3b8ef4;
   color: rgb(235, 235, 11); */
 }
