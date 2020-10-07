@@ -50,3 +50,17 @@ article footer {
   padding-right: 0.5em;
 }
 
+#error {
+  display: none;
+  text-align: center;
+  margin: auto;
+  border: 3px solid #545149;
+  border-radius: 0.5em;
+  background-color: red;
+  color: #f4f1ec;
+  padding: 0.5em;
+  max-width: 50vw;
+  font-family: 'Bungee', cursive;
+  font-size: 24px;;
+}
+

@@ -37,13 +37,16 @@ $(document).ready(function() {
   // AJAX POST Request
   $('form').on('submit', function(event) {
     event.preventDefault(); // prevent our form from reloading the page on submit
+    $('#error').slideUp(600);
     const tweet = $(this).serialize(); 
     // Check that the tweet is valid
     const validateTweet = $('#tweet-text').val();
     if (!validateTweet) { // Tweet is empty
-      alert('Error! Cannot post an empty tweet');
+      $('#error').text('Uh oh! Cannot post empty tweet!')
+      $('#error').slideDown(600);
     } else if (validateTweet.length > 140) { 
-      alert('Error! Tweet is too many characters');
+      $('#error').text('Uh oh! Your tweet is too long!')
+      $('#error').slideDown(600);
     } else { 
       $.ajax('/tweets', { method: 'POST' , data: tweet })
       .then(function() {
