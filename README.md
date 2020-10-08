@@ -10,7 +10,10 @@ Files created myself are in the styles folder (header.css, layout.css, nav.css, 
 
 ## Screenshots
 
-!
+!['Compose tweet to post.'](https://github.com/JoshGrant5/tweeter/blob/master/public/images/compose-tweet.png)
+!['Uh oh! This tweet is too many characters.'](https://github.com/JoshGrant5/tweeter/blob/master/public/images/tweet-too-long.png)
+!['Layout changes once viewport shrinks below 1024px in width.'](https://github.com/JoshGrant5/tweeter/blob/master/public/images/viewport-shrink1.png)
+!['On scroll, the write-new-tweet button in the navbar is replaced by a back-to-top button in the bottom right corner.'](https://github.com/JoshGrant5/tweeter/blob/master/public/images/viewport-shrink2.png)
 
 ## Getting Started
 
