@@ -48,10 +48,6 @@ strong {
   font-weight: 700;
 }
 
-.new-tweet {
-  display: none;
-}
-
 #scroll-to-top {
   display: none;
   position: fixed;

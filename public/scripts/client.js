@@ -90,9 +90,15 @@ $(document).ready(function() {
 
   // Button on right of navbar displays the new tweet form
   $('.nav-right').on('click', function() {
-    $('.new-tweet').slideDown(600, function() {
-      $('#tweet-text').focus();
-    });
+    if ($('.new-tweet').css('display') === 'none') {
+      $('.new-tweet').slideDown(600, function() {
+        $('#tweet-text').focus();
+      });
+    } else {
+      $('.new-tweet').slideUp(600, function() {
+        $('#tweet-text').focus();
+      });
+    }
   });
 
   // scroll to top button shows once user begins scrolling
