@@ -1,12 +1,13 @@
 $(document).ready(function() {
 
-  // Test to prevent XSS attacks from user input
+  // Prevent XSS attacks from user input
   const escape =  function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   }
 
+  // Create the html template for the new tweet
   const createTweetElement = data => {
     let timestamp = new Date(data.created_at);
     const date = timestamp.toDateString();
@@ -33,13 +34,15 @@ $(document).ready(function() {
     <br>`
   };
 
+  // Create html template for each tweet in db, showing newest tweets first
   const renderTweets = list => {
     for (item of list) {
       let tweet = createTweetElement(item);
-      $('#tweets-container').prepend(tweet); // makes tweet the first element in the array (new tweets first)
+      $('#tweets-container').prepend(tweet); 
     }
   };
 
+  // Make an AJAX GET request to display the user's tweet immediatley after they post it 
   const loadNewTweet = () => {
     $.ajax('/tweets', { method: 'GET' })
     .then(function(tweets) {
@@ -50,15 +53,15 @@ $(document).ready(function() {
     })
   }
 
-  // AJAX POST Request
+  // AJAX POST Request for each time the user posts a tweet
   $('form').on('submit', function(event) {
-    event.preventDefault(); // prevent our form from reloading the page on submit
-    $('#error').slideUp(600);
+    event.preventDefault();
+    $('#error').slideUp(600); // if error message is displayed, hide it as soon as new tweet is posted
     const tweet = $(this).serialize(); 
     // Check that the tweet is valid
     const validateTweet = $('#tweet-text').val();
     if (!validateTweet) { // Tweet is empty
-      $('#error').text('Uh oh! Cannot post empty tweet!')
+      $('#error').text('Uh oh! Cannot post empty tweet!');
       $('#error').slideDown(600);
     } else if (validateTweet.length > 140) { 
       $('#error').text('Uh oh! Your tweet is too long!')
@@ -67,7 +70,7 @@ $(document).ready(function() {
       $.ajax('/tweets', { method: 'POST' , data: tweet })
       .then(function() {
         $('.new-tweet').slideUp(1200);
-        loadNewTweet(); // Reload tweet container without refreshing the page
+        loadNewTweet(); 
         $('#tweet-text').val(''); // Clear input field
         $('#counter')[0].innerHTML = 140; // Reset char counter to 140
       }).catch(function() {
@@ -76,7 +79,7 @@ $(document).ready(function() {
     }
   });
 
-  // AJAX GET Request
+  // AJAX GET Request to load tweets for feed
   const loadTweets = () => {
     $.ajax('/tweets', { method: 'GET' })
     .then(function(tweets) {
@@ -86,7 +89,7 @@ $(document).ready(function() {
     })
   };
 
-  loadTweets(); // All tweets show once page has been loaded
+  loadTweets();
 
   // Button on right of navbar displays the new tweet form
   $('.nav-right').on('click', function() {
@@ -94,20 +97,20 @@ $(document).ready(function() {
       $('.new-tweet').slideDown(600, function() {
         $('#tweet-text').focus();
       });
-    } else {
+    } else { // Second click of button will hide new tweet form
       $('.new-tweet').slideUp(600, function() {
         $('#tweet-text').focus();
       });
     }
   });
 
-  // scroll to top button shows once user begins scrolling
+  // Scroll-to-top button dispalys once user begins scrolling
   $(window).on('scroll', function() {
     $('#scroll-to-top').show(600);
     $('.nav-right').hide();
   });
 
-  // Scroll button hides on click and shows tweet form
+  // Scroll-to-top button hides on click and displays tweet form once taken back to top
   $('#scroll-to-top').on('click', function() {
     $('html, body').animate({scrollTop:0}, '300', function() {
       $('.nav-right').show();

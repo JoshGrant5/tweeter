@@ -1,11 +1,9 @@
 $(document).ready(function() {
 
-  console.log('Ready!');
-
+  // Update character count of tweet and turn the count red if tweet exceeds char limit
   $('#tweet-text').on('input', function() {
-    const tweet = $(this); // grab the textarea element
-    const chars = tweet.val().length; // Number of characters in our tweet-text value (input field)
-    const count = $('#counter')[0].innerHTML; // we access the #counter object, and need it's key [0] to access the innerHTML
+    const tweet = $(this); 
+    const chars = tweet.val().length; 
     $('#counter')[0].innerHTML = 140 - chars;
 
     if (chars > 140) {
