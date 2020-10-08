@@ -51,7 +51,7 @@ $(document).ready(function() {
     }).catch(function() {
       alert('Error! Could not find tweet');
     })
-  }
+  };
 
   // AJAX POST Request for each time the user posts a tweet
   $('form').on('submit', function(event) {
@@ -64,12 +64,12 @@ $(document).ready(function() {
       $('#error').text('Uh oh! Cannot post empty tweet!');
       $('#error').slideDown(600);
     } else if (validateTweet.length > 140) { 
-      $('#error').text('Uh oh! Your tweet is too long!')
+      $('#error').text('Uh oh! Your tweet is too long!');
       $('#error').slideDown(600);
     } else { 
       $.ajax('/tweets', { method: 'POST' , data: tweet })
       .then(function() {
-        $('.new-tweet').slideUp(1200);
+        $('.new-tweet').slideUp(800);
         loadNewTweet(); 
         $('#tweet-text').val(''); // Clear input field
         $('#counter')[0].innerHTML = 140; // Reset char counter to 140
