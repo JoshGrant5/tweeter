@@ -4,30 +4,32 @@
     flex-direction: row;
     justify-content: space-between;
   }
+
   nav {
     background-color: #4056A1;
     background-image: none;
   }
+
   .nav-right {
     background-color: #4056A1; 
     background-image: none;
   }
+
   main {
     padding-left: 45vw;
     margin-top: 10vh;
     margin-right: 5vw;
   }
+
   .avatar {
     position: fixed;
     margin-left: 5vw;
     top: 26.5vh;
     width: 35vw;
-    height: 425px; */
-    /* border-radius: 50%; */
+    height: 425px; 
   }
+
   .avatar img {
     margin-top: 1.5em;
   }
-
-  
 }

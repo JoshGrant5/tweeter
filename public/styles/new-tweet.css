@@ -15,9 +15,9 @@
   resize: none;
   height: 2em;
   width: 100%;
-  font-size: 18px;
-  font-weight: 700;
   margin: auto;
+  font-weight: 700;
+  font-size: 18px;
 }
 
 .tweet-button {
@@ -27,6 +27,6 @@
 
 .counter {
   font-family: 'Bungee', cursive;
-  font-size: 24px;
   font-weight: 700;
+  font-size: 24px;
 }

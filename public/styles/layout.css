@@ -23,6 +23,15 @@ body {
   font-size: 18px;
 }
 
+main {
+  width: 90%;
+  margin: auto;
+}
+
+strong {
+  font-weight: 700;
+}
+
 button {
   font-family: 'Bungee', cursive;
   font-weight: 700;
@@ -34,18 +43,9 @@ button {
 }
 
 main button:hover {
-  background-color: #328eeb;;
-  border-color: #328eeb;;
+  background-color: #328eeb;
+  border-color: #328eeb;
   cursor: pointer;
-}
-
-main {
-  width: 90%;
-  margin: auto;
-}
-
-strong {
-  font-weight: 700;
 }
 
 #scroll-to-top {
@@ -63,12 +63,6 @@ strong {
   animation-iteration-count: infinite;
 }
 
-#scroll-to-top:hover {
-  font-size: 48px;
-  cursor: pointer;
-  border-color: #328eeb;
-}
-
 @keyframes top {
   0% {padding-top: 2px};
   25% {padding-top: 6px;}
@@ -77,3 +71,8 @@ strong {
   100% {padding-top: 2px}
 }
 
+#scroll-to-top:hover {
+  font-size: 48px;
+  cursor: pointer;
+  border-color: #328eeb;
+}

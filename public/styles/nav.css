@@ -3,44 +3,42 @@ nav {
   top: 0; 
   width: 100%;
   display: flex;
+  justify-content: space-between;
   height: 120px;
+  padding: 2em;
   background-color: #328eeb;
   background-image: url("https://www.transparenttextures.com/patterns/light-aluminum.png");
   color: #FFFFFF;
-  justify-content: space-between;
-  padding: 2em;
   z-index: 1;
-  /* background-color: #3b8ef4;
-  color: rgb(235, 235, 11); */
 }
 
 nav span {
-  font-size: 36px;
   font-family: 'Bungee', cursive;
   font-weight: 700;
+  font-size: 36px;
 }
 
 .nav-right {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   background-color: #328eeb;
   background-image: url("https://www.transparenttextures.com/patterns/light-aluminum.png");
   border: hidden;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
   font-size: 24px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.nav-right:hover {
-  font-family: 'Bungee', cursive;
-  cursor: pointer;
 }
 
 .nav-right p {
   margin: 0;
   flex-basis: 100%;
+}
+
+.nav-right:hover {
+  font-family: 'Bungee', cursive;
+  cursor: pointer;
 }
 
 .arrows {
