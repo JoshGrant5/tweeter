@@ -5,10 +5,10 @@ nav {
   display: flex;
   height: 120px;
   background-color: #328eeb;
-  background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png");
+  background-image: url("https://www.transparenttextures.com/patterns/light-aluminum.png");
   color: #FFFFFF;
   justify-content: space-between;
-  padding: 1.5em;
+  padding: 2em;
   z-index: 1;
   /* background-color: #3b8ef4;
   color: rgb(235, 235, 11); */
@@ -22,7 +22,7 @@ nav span {
 
 .nav-right {
   background-color: #328eeb;
-  background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png");
+  background-image: url("https://www.transparenttextures.com/patterns/light-aluminum.png");
   border: hidden;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
@@ -35,6 +35,8 @@ nav span {
 
 .nav-right:hover {
   font-family: 'Bungee', cursive;
+  color: rgb(255, 255, 82);
+  cursor: pointer;
 }
 
 .nav-right p {
@@ -42,7 +44,18 @@ nav span {
   flex-basis: 100%;
 }
 
-.nav-right span {
+.arrows {
   display: flex;
   justify-content: center;
+  animation-name: arrows;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes arrows {
+  0% {padding-top: 2px};
+  25% {padding-top: 6px;}
+  50% {padding-top: 12px;}
+  75% {padding-top: 6px}
+  100% {padding-top: 2px}
 }

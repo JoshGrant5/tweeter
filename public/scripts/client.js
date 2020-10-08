@@ -8,6 +8,8 @@ $(document).ready(function() {
   }
 
   const createTweetElement = data => {
+    let timestamp = new Date(data.created_at);
+    const date = timestamp.toDateString();
     return `
     <br>
     <article>
@@ -20,8 +22,12 @@ $(document).ready(function() {
       </header>
       <p class='tweet'>${escape(data.content.text)}</p>
       <footer>
-        <p>${data.created_at}</p>
-        <p>Like buttons</p>
+        <p>${date}</p>
+        <div class='icons'>
+          <span class="iconify" data-icon="clarity:flag-solid" data-inline="false"></span>
+          <span class="iconify" data-icon="ps:retweet" data-inline="false"></span>
+          <span class="iconify" data-icon="bi:suit-heart-fill" data-inline="false"></span>
+        </div>
       </footer>
     </article>
     <br>`
@@ -60,8 +66,8 @@ $(document).ready(function() {
     } else { 
       $.ajax('/tweets', { method: 'POST' , data: tweet })
       .then(function() {
-        loadNewTweet(); // Reload tweet container without refreshing the page
         $('.new-tweet').slideUp(1200);
+        loadNewTweet(); // Reload tweet container without refreshing the page
         $('#tweet-text').val(''); // Clear input field
         $('#counter')[0].innerHTML = 140; // Reset char counter to 140
       }).catch(function() {
@@ -80,22 +86,26 @@ $(document).ready(function() {
     })
   };
 
-  loadTweets();
+  loadTweets(); // All tweets show once page has been loaded
 
+  // Button on right of navbar displays the new tweet form
   $('.nav-right').on('click', function() {
     $('.new-tweet').slideDown(600, function() {
       $('#tweet-text').focus();
     });
   });
 
+  // scroll to top button shows once user begins scrolling
   $(window).on('scroll', function() {
-    $('#scroll-to-top').slideDown(600);
+    $('#scroll-to-top').show(600);
     $('.nav-right').hide();
   });
 
+  // Scroll button hides on click and shows tweet form
   $('#scroll-to-top').on('click', function() {
     $('html, body').animate({scrollTop:0}, '300', function() {
       $('.nav-right').show();
+      $('#scroll-to-top').hide();
       $('.new-tweet').slideDown(600, function() {
         $('#tweet-text').focus();
       });
@@ -103,4 +113,3 @@ $(document).ready(function() {
   });
 
 });
-

@@ -1,5 +1,5 @@
 article {
-  border: 3px solid #545149;
+  border: 3px solid #696363;
   font-weight: 100;
 }
 
@@ -9,15 +9,17 @@ article {
 }
 
 article:hover .enhance {
-  color: #328eeb;
+  color: #2E3861;
 }
 
 article:hover {
-  box-shadow: 6px 6px #328eeb;
-}
-
-article:hover {
+  box-shadow: 6px 6px #ADFFCB;
   font-weight: 700;
+}
+
+article:hover .icons{
+  color: ADFFCB;
+  cursor: pointer;
 }
 
 .tweet {
@@ -39,7 +41,7 @@ article header {
 }
 
 article footer {
-  border-top: 3px solid #545149;
+  border-top: 3px solid #696363;
   margin-left: 1em;
   margin-right: 1em;
 }
@@ -59,7 +61,7 @@ article footer {
   display: none;
   text-align: center;
   margin: auto;
-  border: 3px solid #545149;
+  border: 3px solid red;
   border-radius: 0.5em;
   background-color: red;
   color: #f4f1ec;

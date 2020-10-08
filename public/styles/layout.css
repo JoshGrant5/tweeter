@@ -16,8 +16,9 @@ html {
 
 body {
   padding-top: 6em;
-  color: #545149;
+  color: #363030;
   background-color: #f4f1ec;
+  background-image: url("https://www.transparenttextures.com/patterns/light-aluminum.png");
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
   font-size: 18px;
@@ -26,8 +27,17 @@ body {
 button {
   font-family: 'Bungee', cursive;
   font-weight: 700;
+  font-size: 24px;
   background-color: #4056A1;
+  border-color: #4056A1;
   color: #FFFFFF;
+  outline: none;
+}
+
+main button:hover {
+  background-color: #328eeb;;
+  border-color: #328eeb;;
+  cursor: pointer;
 }
 
 main {
@@ -53,16 +63,21 @@ strong {
   border-radius: 50%;
   border-color: #4056A1;
   font-size: 36px;
+  animation-name: top;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
 }
 
 #scroll-to-top:hover {
   font-size: 48px;
+  cursor: pointer;
 }
 
-@media (min-width: 1024px) {
-  .full-display {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+@keyframes top {
+  0% {padding-top: 2px};
+  25% {padding-top: 6px;}
+  50% {padding-top: 12px;}
+  75% {padding-top: 6px}
+  100% {padding-top: 2px}
 }
+
