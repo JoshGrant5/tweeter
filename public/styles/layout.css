@@ -18,7 +18,6 @@ body {
   padding-top: 6em;
   color: #363030;
   background-color: #f4f1ec;
-  background-image: url("https://www.transparenttextures.com/patterns/light-aluminum.png");
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
   font-size: 18px;
@@ -71,6 +70,7 @@ strong {
 #scroll-to-top:hover {
   font-size: 48px;
   cursor: pointer;
+  border-color: #328eeb;
 }
 
 @keyframes top {

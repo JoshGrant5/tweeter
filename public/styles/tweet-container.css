@@ -8,17 +8,21 @@ article {
   color: #f4f1ec;
 }
 
+.icons {
+  color: #363030;
+}
+
 article:hover .enhance {
-  color: #2E3861;
+  color: #4056A1;
 }
 
 article:hover {
-  box-shadow: 6px 6px #ADFFCB;
+  box-shadow: 6px 6px #328eeb;
   font-weight: 700;
 }
 
 article:hover .icons{
-  color: ADFFCB;
+  color: #4056A1;
   cursor: pointer;
 }
 
